@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Coding Challenge 3
+        </title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            body {
+                background-image: url(bg.jpg);
+                background-size: cover;
+                font-family: Arial, Helvetica, sans-serif;
+                color: white;
+                display: flex ;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            button {
+                color: rgb(255, 144, 196);
+                font-family: Arial, Helvetica, sans-serif;
+                font-size: 14;
+                padding: 10px;
+                border: 2px solid rgba(255, 144, 196, 0.885);
+                border-radius: 10px;
+                cursor: pointer;
+            }
+
+            div {
+                background-color: white;
+                width: 300px;
+                height: 30px;
+                text-align: center;
+            }
+
+            table {
+                border-collapse: collapse;
+            }
+
+            th, td {
+                border: 3px solid rgb(255, 144, 196);
+                padding: 10px;
+                width: 300px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1> Name List </h1>
+
+       <table id="table"> 
+        <tr>
+            <th id = "firstName"> First Name</th>
+            <th id = "middleName"> Middle Name</th>
+            <th id = "lastName"> Last Name</th>
+        </tr>
+       </table>
+       <br> <br>
+       <button onclick="addName()">Add Name</button>
+        <script>
+            function addName(){
+                var fullName = prompt("Please enter your full name below", "First Name, Middle Name, Last Name");
+                var names = fullName.split(",");
+                if (names.length === 3) {
+                    var table = document.getElementById("table");
+                    var newRow = table.insertRow(-1);
+                    var firstNameCell = newRow.insertCell(0);
+                    var middleNameCell = newRow.insertCell(1);
+                    var lastNameCell = newRow.insertCell(2);
+                    firstNameCell.innerText = names[0].trim();
+                    middleNameCell.innerText = names[1].trim();
+                    lastNameCell.innerText = names[2].trim();
+                } else {
+                    alert("Please enter first name, middle name, and last name separated by commas.");
+                }
+            }
+        </script>
+    </body>
+</html>

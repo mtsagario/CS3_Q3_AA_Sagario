@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Coding Challenge 6
+        </title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            body {
+                background-image: url(bg.jpg);
+                background-size: cover;
+                font-family: Arial, Helvetica, sans-serif;
+                color: white;
+                display: flex ;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            button {
+                color: rgb(255, 144, 196);
+                font-family: Arial, Helvetica, sans-serif;
+                font-size: 14;
+                padding: 10px;
+                border: 2px solid rgba(255, 144, 196, 0.885);
+                border-radius: 10px;
+                cursor: pointer;
+            } 
+        </style>
+    </head>
+    <body>
+        <h1> Quadratic Formula </h1>
+
+        <button onclick="solve()">Find the root</button>
+
+        <h4 id="result"></h4>
+
+        <script>
+            function solve(){
+               var a = parseFloat(prompt("Enter the value for a:"));
+               var b = parseFloat(prompt("Enter the value for b:"));
+               var c = parseFloat(prompt("Enter the value for c:"));
+
+               var discriminant = b * b - 4 * a * c;
+
+               if(discriminant > 0) {
+                var x1 = (-b + Math.sqrt(discriminant)) / (2 * a);
+                var x2 = (-b - Math.sqrt(discriminant)) / (2 * a);
+
+                document.getElementById('result').innerHTML = 'x1 = ' + x1 + '      x2 = ' + x2;
+               } else if (discriminant === 0) {
+                var x = -b / (2 * a);
+
+                document.getElementById('result').innerHTML= 'x1 = x2 = ' + x;
+               } else {
+                document.getElementById('result').innerHTML= 'x1 and x2 are imaginary';
+               }
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>One Time Password </title>
+        <style>
+        	body {
+                background-image: url(bg.jpg);
+                background-size: cover;
+                font-family: Arial, Helvetica, sans-serif;
+                color: white;
+                display: flex ;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            button {
+                color: rgb(255, 144, 196);
+                font-family: Arial, Helvetica, sans-serif;
+                font-size: 14;
+                padding: 10px;
+                border: 2px solid rgba(255, 144, 196, 0.885);
+                border-radius: 10px;
+                cursor: pointer;
+            } 
+            a {font-size: 0.5em; color: pink; cursor: pointer}
+        </style>
+
+	</head>
+	<body onload="">
+	<h1> Final Verification Step </h1>
+	<h2> Current OTP: <span id="otp"> _ _ _ _ _ _ </span> <a onclick="otpnew()"> New OTP </a></h2>
+    <button onclick="enterOTP()"> Enter the OTP as shown above </button>
+	
+    
+	<script>
+        function otpnew() {
+            var otp = Math.floor(100000 + Math.random() * 900000);
+            document.getElementById("otp").textContent = otp;
+        }
+
+        function enterOTP() {
+            var otpEntered = prompt('Please enter the OTP:');
+            var otpDisplayed = document.getElementById("otp").textContent;
+
+            if (otpEntered === otpDisplayed) {
+                window.open("https://www.youtube.com/watch?v=dQw4w9WgXcQ");
+            } else {
+                alert("Incorrect OTP! Please try again.");
+                generateOTP();
+            }
+        }
+    </script>
+</body>
+</html>

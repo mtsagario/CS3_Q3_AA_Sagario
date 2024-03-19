@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Coding Challenge 4
+        </title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            body {
+                background-image: url(bg.jpg);
+                background-size: cover;
+                font-family: Arial, Helvetica, sans-serif;
+                color: white;
+                display: flex ;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            p {
+                margin-right: 200px;
+                margin-left: 200px;
+            }
+
+            button {
+                color: rgb(255, 144, 196);
+                font-family: Arial, Helvetica, sans-serif;
+                font-size: 14;
+                padding: 10px;
+                border: 2px solid rgba(255, 144, 196, 0.885);
+                border-radius: 10px;
+                cursor: pointer;
+            }
+        </style>
+    </head>
+    <body>
+        <h1> Replace All </h1>
+
+        <p id="para">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+        <button onclick="cchange()">Replace</button>
+        <p id="parap"></p>
+
+        <script>
+            function cchange(){
+                var text = document.getElementById("para").innerText;
+                var prevChar = prompt("Enter the character or string to be replaced:");
+                var newChar = prompt("Enter the new character or string:");
+                var newTxt = text.split(prevChar).join(newChar);
+                document.getElementById("parap").innerText = newTxt;
+            }
+        </script>
+    </body>
+</html>
